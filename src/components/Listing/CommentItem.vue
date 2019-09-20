@@ -8,7 +8,7 @@
             p.font-weight-medium.mb-0 {{ data.title }}
             p.text-muted.mb-1.text-small {{ data.detail }}
             div
-                stars( :value="data.rate" :disabled=true)
+                stars( :value="data.rate" :disabled="true")
 
     
 </template>
@@ -24,8 +24,8 @@ import Stars from "@/components/Common/Stars";
     }
 })
 export default class CommentItem extends Vue {
-    @Prop() public data: string;
-    @Prop() public detail: string;
+    @Prop() public data: object;
+    @Prop() public detailPath: string;
 
 }
 </script>
