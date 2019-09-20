@@ -9,7 +9,7 @@
 import { Component, Vue } from "vue-property-decorator";
 
 @Component({
-  name: "MenuIconMobile"
+	name: "MenuIconMobile"
 })
 export default class MenuIconMobile extends Vue {}
 </script>

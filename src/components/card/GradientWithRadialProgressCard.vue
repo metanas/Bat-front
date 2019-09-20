@@ -15,44 +15,44 @@ import {Component, Prop, Vue} from "vue-property-decorator";
 import RadialProgressBar from "vue-radial-progress/src/RadialProgressBar.vue";
 
 @Component({
-  name: "GradientWithRadialProgressCard",
-  components: {
-    RadialProgressBar
-  }
+	name: "GradientWithRadialProgressCard",
+	components: {
+		RadialProgressBar
+	}
 })
 export default class GradientWithRadialProgressCard extends Vue {
-  @Prop() public icon: string;
+	@Prop() public icon: string;
 
-  @Prop() public title: string;
+	@Prop() public title: string;
 
-  @Prop() public detail: string;
+	@Prop() public detail: string;
 
-  @Prop() public progressText: string;
+	@Prop() public progressText: string;
 
-  @Prop() public percent: string;
+	@Prop() public percent: string;
 
-  public diameterDefault = 125;
-  public strokeWidthDefault = 5;
-  public diameter = this.diameterDefault;
-  public strokeWidth = this.strokeWidthDefault;
+	public diameterDefault = 125;
+	public strokeWidthDefault = 5;
+	public diameter = this.diameterDefault;
+	public strokeWidth = this.strokeWidthDefault;
 
-  public mounted(): void {
-    window.addEventListener("resize", this.handleWindowResize);
-    this.handleWindowResize();
-  }
+	public mounted(): void {
+		window.addEventListener("resize", this.handleWindowResize);
+		this.handleWindowResize();
+	}
 
-  public handleWindowResize(event?: any): void {
-    if (event && !event.isTrusted) {
-      return;
-    }
-    const windowWidth = window.innerWidth;
-    if (windowWidth <= 1200) {
-      this.diameter = 84;
-      this.strokeWidth = 2;
-    } else {
-      this.diameter = this.diameterDefault;
-      this.strokeWidth = this.strokeWidthDefault;
-    }
-  }
+	public handleWindowResize(event?: any): void {
+		if (event && !event.isTrusted) {
+			return;
+		}
+		const windowWidth = window.innerWidth;
+		if (windowWidth <= 1200) {
+			this.diameter = 84;
+			this.strokeWidth = 2;
+		} else {
+			this.diameter = this.diameterDefault;
+			this.strokeWidth = this.strokeWidthDefault;
+		}
+	}
 }
 </script>

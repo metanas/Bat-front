@@ -11,8 +11,8 @@ import TopNav from "@/containers/TopNav.vue";
 import SideBar from "@/containers/SideBar.vue";
 import GradientWithRadialProgressCard from "@/components/card/GradientWithRadialProgressCard.vue";
 @Component({
-  name: "Admin",
-  components: { TopNav, SideBar, GradientWithRadialProgressCard }
+	name: "Admin",
+	components: { TopNav, SideBar, GradientWithRadialProgressCard }
 })
 export default class Admin extends Vue {
 

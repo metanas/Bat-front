@@ -8,7 +8,7 @@ b-card.dashboard-sq-banner.justify-content-end(no-body)
 import { Component, Vue } from "vue-property-decorator";
 
 @Component({
-  name: "GradientCard"
+	name: "GradientCard"
 })
 export default class GradientCard extends Vue {}
 </script>

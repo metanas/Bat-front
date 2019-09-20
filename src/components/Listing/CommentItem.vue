@@ -10,22 +10,22 @@
             div
                 stars( :value="data.rate" :disabled="true")
 
-    
+
 </template>
 
 <script lang="ts">
-import {Component,Prop, Vue} from "vue-property-decorator";
+import {Component, Prop, Vue} from "vue-property-decorator";
 import Stars from "@/components/Common/Stars";
 
 @Component({
-    name : "CommentItem",
-    components: {
-        Stars
-    }
+		name : "CommentItem",
+		components: {
+				Stars
+		}
 })
 export default class CommentItem extends Vue {
-    @Prop() public data: object;
-    @Prop() public detailPath: string;
+	@Prop() public data: object;
+	@Prop() public detailPath: string;
 
 }
 </script>
