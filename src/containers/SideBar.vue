@@ -22,14 +22,14 @@ import { Component, Vue } from "vue-property-decorator";
 import vuePerfectScrollbar from "vue-perfect-scrollbar/index.vue";
 
 @Component({
-  name: "SideBar",
-  components: {
-    vuePerfectScrollbar
-  }
+	name: "SideBar",
+	components: {
+		vuePerfectScrollbar
+	}
 })
 export default class SideBar extends Vue {
-  public selectedParentMenu = "";
-  public isMenuOver = false;
+	public selectedParentMenu = "";
+	public isMenuOver = false;
 }
 </script>
 

@@ -5,6 +5,6 @@ import Route from "./routes/admin";
 Vue.use(Router);
 
 export default new Router({
-  routes: Route,
-  mode: "history",
+	routes: Route,
+	mode: "history",
 });

@@ -14,7 +14,7 @@
 import { Component, Vue } from "vue-property-decorator";
 
 @Component({
-  name: "MenuIcon"
+	name: "MenuIcon"
 })
 export default class MenuIcon extends Vue {}
 </script>

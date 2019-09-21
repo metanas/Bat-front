@@ -20,12 +20,12 @@ import MenuIcon from "@/components/Svg/MenuIcon.vue";
 import MenuIconMobile from "@/components/Svg/MenuIconMobile.vue";
 
 @Component({
-  name: "TopNav",
-  components: { MenuIcon, MenuIconMobile }
+	name: "TopNav",
+	components: { MenuIcon, MenuIconMobile }
 })
 export default class TopNav extends Vue {
-  public searchKeyword = "";
-  public isMobileSearch = false;
+	public searchKeyword = "";
+	public isMobileSearch = false;
 
 }
 </script>
