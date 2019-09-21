@@ -1,6 +1,6 @@
 <template lang="pug">
 
-p-cart(@click.prevent="toggleItem($event,data.id)").d-flex.flex-row( :true, active ).selectedItems.includes(data.id)( no-body )
+p-cart.d-flex.flex-row(:class="{'active': selectedItems.includes(data.id)}" @click.prevent="toggleItem($event,data.id)" no-body )
     .card-body.align-self-center.d-flex.flex-column.flex-lg-row.justify-content-between.min-width-zero.align-items-lg-center
         router-link.w-40.w-sm-100( :to="`?p=${data.id}`")
             p.list-item-heading.mb-1.truncate {{data.title}}
@@ -14,11 +14,10 @@ p-cart(@click.prevent="toggleItem($event,data.id)").d-flex.flex-row( :true, acti
 </template>
 
 <script lang="ts">
-import {Component,Prop, Vue} from "vue-property-decorator";
-
+import {Prop, Vue} from "vue-property-decorator";
 export default class DataListItem extends Vue {
     @Prop() public data: object;
-    @Prop() public selectedItems: object;
+    @Prop() public selectedItems: number[];
     public toggleItem (event?: any, itemId?: number) {
         this.$emit('toggle-item', event, itemId)}
 }
