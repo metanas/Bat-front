@@ -14,7 +14,10 @@ p-cart.d-flex.flex-row(:class="{'active': selectedItems.includes(data.id)}" @cli
 </template>
 
 <script lang="ts">
-import {Prop, Vue} from "vue-property-decorator";
+import {Component,Prop, Vue} from "vue-property-decorator";
+@Component({
+    name:"DataListItem"
+})
 export default class DataListItem extends Vue {
     @Prop() public data: object;
     @Prop() public selectedItems: number[];
