@@ -13,6 +13,6 @@ table.table.table-sm.table-borderless
 <script lang="ts">
 import {Prop, Vue} from "vue-property-decorator";
 export default class LogList extends Vue{
-    @Prop() public logs: object;
+    @Prop() public log: object;
     }
 </script>
