@@ -19,6 +19,7 @@ import {Prop, Vue} from "vue-property-decorator";
 export default class RecentOrderItem extends Vue {
     @Prop() public data: object;
     @Prop() public detailPath: string;
+    @Prop() public order: object;
 
     }
 </script>

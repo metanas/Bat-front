@@ -21,7 +21,7 @@ import {Prop, Vue} from "vue-property-decorator";
 export default class ImageListItem extends Vue {
     @Prop() public data: object;
     @Prop() public selectedItems: number[];
-    public toggleItem (event?: any, itemId?: number) {
+    public toggleItem (event: MouseEvent, itemId?: number) {
         this.$emit('toggle-item', event, itemId)}
     }
 </script>
