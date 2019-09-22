@@ -17,7 +17,10 @@ b-card(:class="{'active': selectedItems.includes(data.id)}" @click.prevent="togg
 </template>
 
 <script lang="ts">
-import {Prop, Vue} from "vue-property-decorator";
+import {Component,Prop, Vue} from "vue-property-decorator";
+@Component({
+    name:"ImageListItem"
+})
 export default class ImageListItem extends Vue {
     @Prop() public data: object;
     @Prop() public selectedItems: number[];

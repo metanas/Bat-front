@@ -13,7 +13,10 @@
 </template>
 
 <script lang="ts">
-import {Prop, Vue} from "vue-property-decorator";
+import {Component,Prop, Vue} from "vue-property-decorator";
+@Component({
+    name:"TwoColumnList"
+})
 export default class TwoColumnList extends Vue {
     @Prop() public data: object;
     @Prop() public item: object;

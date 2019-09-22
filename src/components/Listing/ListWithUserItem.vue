@@ -13,7 +13,10 @@
 </template>
 
 <script lang="ts">
-import {Prop, Vue} from "vue-property-decorator";
+import {Component,Prop, Vue} from "vue-property-decorator";
+@Component({
+    name:"ListWithUserItem"
+})
 export default class ListWithUserItem extends Vue {
     @Prop() public data: object;
     @Prop() public detailPath: string;

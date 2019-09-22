@@ -16,7 +16,10 @@ b-card.d-flex.flex-row(:class="{'active': selectedItems.includes(data.id)}" @cli
 </template>
 
 <script lang="ts">
-import {Prop, Vue} from "vue-property-decorator";
+import {Component,Prop, Vue} from "vue-property-decorator";
+@Component({
+    name:"ThumbListItem"
+})
 export default class ThumbListItem extends Vue {
     @Prop() public data: object;
     @Prop() public selectedItems: number[];

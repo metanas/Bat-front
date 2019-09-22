@@ -11,7 +11,10 @@ b-card.d-flex.flex-row.mb-3 (no-body)
 </template>
 
 <script lang="ts">
-import {Prop, Vue} from "vue-property-decorator";
+import {Component,Prop, Vue} from "vue-property-decorator";
+@Component({
+    name:"OrderItem"
+})
 export default class OrderItem extends Vue {
     @Prop() public data: object;
     @Prop() public detailPath: string;
