@@ -38,7 +38,7 @@ export const lineChartOptions = {
             }
         ]
     }
-}
+};
 export const polarAreaChartOptions = {
     legend: {
         position: 'bottom',
@@ -96,7 +96,7 @@ export const areaChartOptions = {
             }
         ]
     }
-}
+};
 
 export const scatterChartOptions = {
     legend: {
@@ -138,7 +138,7 @@ export const scatterChartOptions = {
         ]
     },
     tooltips: chartTooltip
-}
+};
 
 export const barChartOptions = {
     legend: {
@@ -178,7 +178,7 @@ export const barChartOptions = {
         ]
     },
     tooltips: chartTooltip
-}
+};
 
 export const radarChartOptions = {
     legend: {
