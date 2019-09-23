@@ -23,10 +23,10 @@ Chart.controllers.lineWithShadow = Chart.controllers.line.extend({
 const AreaShadow = generateChart('area-with-shadow', 'lineWithShadow')
 
 @Component({
-    name:"AreaShadow"
+    name:"AreaShadowClass"
 })
 
-export default class AreaShadow extends AreaShadow {
+export default class AreaShadowClass extends AreaShadow {
     @Prop() public data: object;
 
     public  options = areaChartOptions;
