@@ -1,18 +1,17 @@
+
 <script lang="ts">
-import { Line } from 'vue-chartjs'
+import { PolarArea } from 'vue-chartjs'
 import {Component, Prop, Vue} from "vue-property-decorator";
-import { areaChartOptions } from './config'
-
+import { polarAreaChartOptions } from './config'
 @Component({
-    name:"Area"
+    name:"PolarAreaClass"
 })
-
-export default class Area extends Line {
+export default class PolarAreaClass extends PolarArea {
     @Prop() public data: object;
-    public  options = areaChartOptions;
+
+    public  options = polarAreaChartOptions;
     public mounted(): void {
         this.renderChart(this.data, this.options)
     }
 }
 </script>
-
