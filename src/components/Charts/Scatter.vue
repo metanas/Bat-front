@@ -1,6 +1,3 @@
-<template>
-    
-</template>
 
 <script lang="ts">
 import { Scatter } from 'vue-chartjs'
