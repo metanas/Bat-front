@@ -29,7 +29,7 @@ export default class SurveyListItem extends Vue{
     @Prop() public selectItems: number[];
     @Prop() public data: object;
 
-    public toogledItem(event?:any, itemId?:number){
+    public toogledItem(event: MouseEvent, itemId?:number){
         this.$emit('toggle-item', event, itemId)
     }
 }

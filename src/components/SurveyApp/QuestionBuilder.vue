@@ -77,16 +77,14 @@ b-card.question.d-flex.mb-4.edit-quesiton(no-body)
     export default class QuestionBuilder extends Vue {
         @Prop() public sort: string;
         @Prop() public data: object;
-        @Prop() public a: object;
-        @Prop() public option: object;
 
-        public questionTypes;
+        public questionTypes = questionTypes;
         public mode: 'edit'; // edit,
         public showDetail: false;
         public title: '';
         public question: '';
         public answers: null;
-        public answerType: questionTypes[0]
+        public answerType: questionTypes[0];
 
         public mounted():void{
             this.title = this.data.title
