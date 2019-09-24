@@ -32,20 +32,19 @@
         public showPop= false
 
         @Watch mouse(){
-            let self = this
-            let x = self.mouse[0]
-            let y = self.mouse[1]
+            let x = this.mouse[0]
+            let y = this.mouse[1]
             if (x === 'close') {
-                self.showPop = false
+                this.showPop = false
             } else {
-                self.freeStyle = `left:${x}px; top:${y}px;` +
-                    `z-index:${self.zIndex};
-                            width:${self.width}; height:${self.height};
-                            border:${self.border}; padding: ${self.padding};
-                            box-shadow:${self.boxShadow}; background: ${self.background};
-                            border-radius:${self.borderRadius}; color: ${self.color}
+                this.freeStyle = `left:${x}px; top:${y}px;` +
+                    `z-index:${this.zIndex};
+                            width:${this.width}; height:${this.height};
+                            border:${this.border}; padding: ${this.padding};
+                            box-shadow:${this.boxShadow}; background: ${this.background};
+                            border-radius:${this.borderRadius}; color: ${this.color}
                            `
-                self.showPop = true
+                this.showPop = true
                 if (!this.$refs.menu) {
                     this.$nextTick(() => {
                         const { menu } = this.$refs
@@ -70,9 +69,8 @@
             return this.popItems
         }
 
-        public listItemClick(it?: MouseEvent){
-            let self = this;
-            self.$emit('ListItemClick', it)
+        public listItemClick(it?: MouseEvent):void{
+            this.$emit('ListItemClick', it)
         }
         public overrideOncontextmenu(){
             document.body.oncontextmenu = preventExplorerMenu

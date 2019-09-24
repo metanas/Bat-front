@@ -31,7 +31,7 @@
 
         @Prop() public id: number;
         @Prop() public variant: string;
-        @Prop() public click: object;
+        @Prop() public click: Promise;
 
         status= 'default';
         message= '';
