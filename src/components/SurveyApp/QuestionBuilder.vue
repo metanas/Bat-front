@@ -35,7 +35,7 @@ b-card.question.d-flex.mb-4.edit-quesiton(no-body)
                         .input-icons
                             span.badge.badge-pill.handle.pr-0.mr-0
                                 i.simple-icon-cursor-move
-                            span.badge.badge-pill
+                            span.badge.badge-pill(@click="deleteAnswer(a.value)")
                                 i.simple-icon-ban
                 .text-center
                     b-button(variant="outline-primary" size="sm" class="mb-2" @click="addAnswer")
@@ -79,12 +79,12 @@ b-card.question.d-flex.mb-4.edit-quesiton(no-body)
         @Prop() public data: object;
 
         public questionTypes = questionTypes;
-        public mode: 'edit'; // edit,
-        public showDetail: false;
-        public title: '';
-        public question: '';
-        public answers: null;
-        public answerType: questionTypes[0];
+        public mode = 'edit'; // edit,
+        public showDetail = false;
+        public title= '';
+        public question= '';
+        public answers= null;
+        public answerType= questionTypes[0];
 
         public mounted():void{
             this.title = this.data.title
@@ -93,11 +93,11 @@ b-card.question.d-flex.mb-4.edit-quesiton(no-body)
             this.answerType = questionTypes.find(x => x.value === this.data.answerType)
         }
 
-        public changeMode(mode?: any):void{
+        public changeMode(mode: string):void{
             this.mode = mode;
             this.showDetail = true
         }
-        public deleteAnswer(value?:any):void{
+        public deleteAnswer(value: number):void{
             this.answers = this.answers.filter(x => x.value !== value)
 
         }
