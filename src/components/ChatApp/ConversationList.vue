@@ -14,7 +14,7 @@ vue-perfect-scrollbar.scroll(:settings='{ suppressScrollX: true, wheelPropagatio
 <script lang="ts">
 import {Component, Prop, Vue} from "vue-property-decorator";
 
-  @Component({
+@Component({
   name: "ConversationList"
 })
 export default class ConversationList extends Vue {
@@ -34,7 +34,7 @@ export default class ConversationList extends Vue {
   }
 
   public otherUser(users: object[]): object | undefined {
-	let otherUserId = users.find((x) => x !== this.currentUser.id);
+	const otherUserId = users.find((x) => x !== this.currentUser.id);
 	return this.contacts.find((x) => x.id === otherUserId);
   }
 }

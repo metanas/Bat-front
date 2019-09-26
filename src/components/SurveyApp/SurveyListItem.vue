@@ -23,16 +23,14 @@ b-card(@click="toggleItem($event,data.id)" :class="{'d-flex mb-3':true,'active' 
 <script lang="ts">
 import {Component, Prop, Vue } from "vue-property-decorator";
 @Component({
-    name: "SurveyListItem"})
+	name: "SurveyListItem"})
 
-export default class SurveyListItem extends Vue{
-    @Prop() public selectItems: number[];
-    @Prop() public data: object;
+export default class SurveyListItem extends Vue {
+	@Prop() public selectItems: number[];
+	@Prop() public data: object;
 
-    public toogledItem(event: MouseEvent, itemId?:number){
-        this.$emit('toggle-item', event, itemId)
-    }
+	public toogledItem(event: MouseEvent, itemId?: number) {
+		this.$emit("toggle-item", event, itemId);
+	}
 }
-
-
 </script>

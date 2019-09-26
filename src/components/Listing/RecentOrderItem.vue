@@ -15,14 +15,14 @@
 </template>
 
 <script lang="ts">
-import {Component,Prop, Vue} from "vue-property-decorator";
+import {Component, Prop, Vue} from "vue-property-decorator";
 @Component({
-    name:"RecentOrderItem"
+	name: "RecentOrderItem"
 })
 export default class RecentOrderItem extends Vue {
-    @Prop() public data: object;
-    @Prop() public detailPath: string;
-    @Prop() public order: object;
+	@Prop() public data: object;
+	@Prop() public detailPath: string;
+	@Prop() public order: object;
 
-    }
+	}
 </script>

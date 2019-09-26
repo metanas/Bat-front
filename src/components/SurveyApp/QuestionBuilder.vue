@@ -56,56 +56,55 @@ b-card.question.d-flex.mb-4.edit-quesiton(no-body)
 </template>
 
 <script lang="ts">
-    import vSelect from 'vue-select'
-    import 'vue-select/dist/vue-select.css'
-    import draggable from 'vuedraggable'
-    import {Component,Watch, Prop, Vue } from "vue-property-decorator";
+import vSelect from "vue-select";
+import "vue-select/dist/vue-select.css";
+import draggable from "vuedraggable";
+import {Component, Watch, Prop, Vue } from "vue-property-decorator";
 
 
-    const questionTypes = [{ label: 'Text Input', value: 0, options: false },
-        { label: 'Single Select', value: 1, options: true },
-        { label: 'Multiple Select', value: 2, options: true },
-        { label: 'Checkbox', value: 3, options: true },
-        { label: 'Radiobutton', value: 4, options: true }]
-    @Component({
-        name: "QuestionBuilder",
-        components: {
-            vSelect,
-            draggable
-        }
-    })
-    export default class QuestionBuilder extends Vue {
-        @Prop() public sort: string;
-        @Prop() public data: object;
+const questionTypes = [{ label: "Text Input", value: 0, options: false },
+	{ label: "Single Select", value: 1, options: true },
+	{ label: "Multiple Select", value: 2, options: true },
+	{ label: "Checkbox", value: 3, options: true },
+	{ label: "Radiobutton", value: 4, options: true }];
+@Component({
+	name: "QuestionBuilder",
+	components: {
+		vSelect,
+		draggable
+	}
+})
+export default class QuestionBuilder extends Vue {
+	@Prop() public sort: string;
+	@Prop() public data: object;
 
-        public questionTypes = questionTypes;
-        public mode = 'edit'; // edit,
-        public showDetail = false;
-        public title= '';
-        public question= '';
-        public answers= null;
-        public answerType= questionTypes[0];
+	public questionTypes = questionTypes;
+	public mode = "edit"; // edit,
+	public showDetail = false;
+	public title = "";
+	public question = "";
+	public answers = null;
+	public answerType = questionTypes[0];
 
-        public mounted():void{
-            this.title = this.data.title
-            this.question = this.data.question
-            this.answers = this.data.answers
-            this.answerType = questionTypes.find(x => x.value === this.data.answerType)
-        }
+	public mounted(): void {
+		this.title = this.data.title;
+		this.question = this.data.question;
+		this.answers = this.data.answers;
+		this.answerType = questionTypes.find((x) => x.value === this.data.answerType);
+	}
 
-        public changeMode(mode: string):void{
-            this.mode = mode;
-            this.showDetail = true
-        }
-        public deleteAnswer(value: number):void{
-            this.answers = this.answers.filter(x => x.value !== value)
+	public changeMode(mode: string): void {
+		this.mode = mode;
+		this.showDetail = true;
+	}
+	public deleteAnswer(value: number): void {
+		this.answers = this.answers.filter((x) => x.value !== value);
 
-        }
-        public addAnswer():void{
-            this.answers.push({ value: this.answers.length + 1, label: '' })
-        }
-        @Watch showDetail(val){if (!val) {}}
-    }
+	}
+	public addAnswer(): void {
+		this.answers.push({ value: this.answers.length + 1, label: "" });
+	}
 
+}
 </script>
 
