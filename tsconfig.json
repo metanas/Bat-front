@@ -5,6 +5,7 @@
     "strict": true,
     "jsx": "preserve",
     "importHelpers": true,
+    "noImplicitAny": false,
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "esModuleInterop": true,
@@ -14,6 +15,7 @@
     "types": [
       "webpack-env"
     ],
+    "typeRoots": ["./src/typings", "node_modules/@types"],
     "paths": {
       "@/*": [
         "src/*"
@@ -32,6 +34,7 @@
     "test/**/*.ts"
   ],
   "exclude": [
+    "./src/typings",
     "node_modules"
   ]
 }
