@@ -75,36 +75,37 @@ const questionTypes = [{ label: "Text Input", value: 0, options: false },
 	}
 })
 export default class QuestionBuilder extends Vue {
-	@Prop() public sort: string;
-	@Prop() public data: object;
+  @Prop() public sort: string;
+  @Prop() public data: object;
 
-	public questionTypes = questionTypes;
-	public mode = "edit"; // edit,
-	public showDetail = false;
-	public title = "";
-	public question = "";
-	public answers = null;
-	public answerType = questionTypes[0];
+  public questionTypes = questionTypes;
+  public mode = "edit"; // edit,
+  public showDetail = false;
+  public title = "";
+  public question = "";
+  public answers = [];
+  public answerType = questionTypes[0];
 
-	public mounted(): void {
-		this.title = this.data.title;
-		this.question = this.data.question;
-		this.answers = this.data.answers;
-		this.answerType = questionTypes.find((x) => x.value === this.data.answerType);
-	}
+  public mounted(): void {
+    this.title = this.data.title;
+    this.question = this.data.question;
+    this.answers = this.data.answers;
+    this.answerType = questionTypes.find((x) => x.value === this.data.answerType);
+  }
 
-	public changeMode(mode: string): void {
-		this.mode = mode;
-		this.showDetail = true;
-	}
-	public deleteAnswer(value: number): void {
-		this.answers = this.answers.filter((x) => x.value !== value);
+  public changeMode(mode: string): void {
+    this.mode = mode;
+    this.showDetail = true;
+  }
 
-	}
-	public addAnswer(): void {
-		this.answers.push({ value: this.answers.length + 1, label: "" });
-	}
+  public deleteAnswer(value: number): void {
+    this.answers = this.answers.filter((x) => x.value !== value);
 
+  }
+
+  public addAnswer(): void {
+    this.answers.push({value: this.answers.length + 1, label: ""});
+  }
 }
 </script>
 

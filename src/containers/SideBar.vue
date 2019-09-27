@@ -20,6 +20,11 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import vuePerfectScrollbar from "vue-perfect-scrollbar/index.vue";
+import gql from "graphql-tag";
+
+const t = gql`{ me {
+    id
+}}`;
 
 @Component({
 	name: "SideBar",
@@ -30,9 +35,10 @@ import vuePerfectScrollbar from "vue-perfect-scrollbar/index.vue";
 export default class SideBar extends Vue {
 	public selectedParentMenu = "";
 	public isMenuOver = false;
+
+	mounted(): void {
+	  this.$apollo.query({ query: t })
+      .catch((error) => console.error(error));
+  }
 }
 </script>
-
-<style scoped>
-
-</style>
