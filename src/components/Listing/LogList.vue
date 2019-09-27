@@ -11,11 +11,11 @@ table.table.table-sm.table-borderless
 </template>
 
 <script lang="ts">
-import {Component,Prop, Vue} from "vue-property-decorator";
+import {Component, Prop, Vue} from "vue-property-decorator";
 @Component({
-    name:"LogList"
+	name: "LogList"
 })
-export default class LogList extends Vue{
-    @Prop() public log: object;
-    }
+export default class LogList extends Vue {
+	@Prop() public log: object;
+	}
 </script>

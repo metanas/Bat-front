@@ -22,42 +22,42 @@
 </template>
 
 <script lang="ts">
-    import {Component,Prop, Vue} from "vue-property-decorator";
-    @Component({
-        name: "StateButton",
-    })
+import {Component, Prop, Vue} from "vue-property-decorator";
+@Component({
+	name: "StateButton",
+})
 
-    export default class StateButton extends Vue{
+export default class StateButton extends Vue {
 
-        @Prop() public id: number;
-        @Prop() public variant: string;
-        @Prop() public click: Promise;
+	@Prop() public id: number;
+	@Prop() public variant: string;
+	@Prop() public click: Promise;
 
-        status= 'default';
-        message= '';
-        messageShow= false;
+	public status = "default";
+	public message = "";
+	public messageShow = false;
 
-        public handleClick(){
-            this.status = 'processing';
-            this.click()
-                .then(res => {
-                    this.status = 'success';
-                    this.message = res
-                })
-                .catch(err => {
-                    this.status = 'fail';
-                    this.message = err
-                })
-                .finally(() => {
-                    this.messageShow = true;
-                    this.$refs.statusTooltip.$emit('enable');
-                    setTimeout(() => {
-                        this.messageShow = false;
-                        this.status = 'default';
-                        this.$refs.statusTooltip.$emit('disable')
-                    }, 3000)
-                })
-        }
-    }
+	public handleClick() {
+		this.status = "processing";
+		this.click()
+			.then((res) => {
+				this.status = "success";
+				this.message = res;
+			})
+			.catch((err) => {
+				this.status = "fail";
+				this.message = err;
+			})
+			.finally(() => {
+				this.messageShow = true;
+				this.$refs.statusTooltip.$emit("enable");
+				setTimeout(() => {
+					this.messageShow = false;
+					this.status = "default";
+					this.$refs.statusTooltip.$emit("disable");
+				}, 3000);
+			});
+	}
+}
 </script>
 

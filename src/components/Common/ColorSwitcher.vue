@@ -20,60 +20,60 @@
 </template>
 
 <script lang="ts">
-    import { colors } from '@/constants/config'
-    import {Component,Watch,Vue} from "vue-property-decorator";
+import { colors } from "@/constants/config";
+import {Component, Watch, Vue} from "vue-property-decorator";
 
-    @Component({
-        name: "ColorSwitcher"})
-    export default class ColorSwitcher extends Vue {
-        public isOpen= false;
-        public isMenuOver= false;
-        public selectedColor= '';
+@Component({
+	name: "ColorSwitcher"})
+export default class ColorSwitcher extends Vue {
+	public isOpen = false;
+	public isMenuOver = false;
+	public selectedColor = "";
 
-        public addEvents() {
-            document.addEventListener('click', this.handleDocumentClick);
-            document.addEventListener('touchstart', this.handleDocumentClick)
-        }
-        public removeEvents(){
-            document.removeEventListener('click', this.handleDocumentClick);
-            document.removeEventListener('touchstart', this.handleDocumentClick)
-        }
+	public addEvents() {
+		document.addEventListener("click", this.handleDocumentClick);
+		document.addEventListener("touchstart", this.handleDocumentClick);
+	}
+	public removeEvents() {
+		document.removeEventListener("click", this.handleDocumentClick);
+		document.removeEventListener("touchstart", this.handleDocumentClick);
+	}
 
-        public handleDocumentClick(e?: MouseEvent){
-            if (!this.isMenuOver) {
-                this.toggle()
-            }
-        }
-        public toggle (){
-            this.isOpen = !this.isOpen
-        }
-        public changeThemColor(color : string){
-            localStorage.setItem('themeColor', color)
-            this.toggle()
-            setTimeout(() => {
-                window.location.reload()
-            }, 500)
-        }
-        @Watch isOpen(val){if (val) {
-            if (val) {
-                this.addEvents()
-            } else {
-                this.removeEvents()
-            }
-            }
-        }
-        public beforeDestroy():void{
-            this.removeEvents()
-        }
-        public mounted(): void {
-            const color = localStorage.getItem('themeColor')
-            if (color != null && colors.includes(color)) {
-                this.selectedColor = color
-            } else {
-                this.selectedColor = 'light.orange'
-            }
-        }
+	public handleDocumentClick(e?: MouseEvent) {
+		if (!this.isMenuOver) {
+			this.toggle();
+		}
+	}
+	public toggle() {
+		this.isOpen = !this.isOpen;
+	}
+	public changeThemColor(color: string) {
+		localStorage.setItem("themeColor", color);
+		this.toggle();
+		setTimeout(() => {
+			window.location.reload();
+		}, 500);
+	}
+	@Watch public isOpen(val) {if (val) {
+		if (val) {
+			this.addEvents();
+		} else {
+			this.removeEvents();
+		}
+		}
+	}
+	public beforeDestroy(): void {
+		this.removeEvents();
+	}
+	public mounted(): void {
+		const color = localStorage.getItem("themeColor");
+		if (color !== null && colors.includes(color)) {
+			this.selectedColor = color;
+		} else {
+			this.selectedColor = "light.orange";
+		}
+	}
 
 
-    }
+}
 </script>

@@ -9,61 +9,61 @@
 </template>
 
 <script lang="ts">
-    import {Component,Watch ,Prop, Vue} from "vue-property-decorator";
-    @Component({
-        name: "Notify",
-    })
+import {Component, Watch , Prop, Vue} from "vue-property-decorator";
+@Component({
+	name: "Notify",
+})
 
-    export default class Notify extends Vue {
-        message= null;
-        title= null;
-        options: {
-            type: 'success',
-            duration: 2000,
-            permanent: false
-        };
-        items= [];
-        idx= 0
-        public createUUID(){
-            const pattern = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
-            return pattern.replace(/[xy]/g, c => {
-                const r = (Math.random() * 16) | 0
-                const v = c === 'x' ? r : (r & 0x3) | 0x8
-                return v.toString(16)
-            })
-        }
-        public addItem(type:string,title:string,message:string,options:string){
-            let defaultOptions = {
-                type: type,
-                duration: this.options.duration,
-                permanent: this.options.permanent
-            }
-            let itemOptions = Object.assign({}, defaultOptions, options)
+export default class Notify extends Vue {
+	public message = null;
+	public title = null;
+	public options: {
+		type: "success",
+		duration: 2000,
+		permanent: false
+	};
+	public items = [];
+	public idx = 0;
+	public createUUID() {
+		const pattern = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";
+		return pattern.replace(/[xy]/g, (c) => {
+			const r = (Math.random() * 16) || 0;
+			const v = c === "x" ? r : (r && 0x3) || 0x8;
+			return v.toString(16);
+		});
+	}
+	public addItem(type: string, title: string, message: string, options: string) {
+		const defaultOptions = {
+			type,
+			duration: this.options.duration,
+			permanent: this.options.permanent
+		};
+		const itemOptions = Object.assign({}, defaultOptions, options);
 
-            let idx = this.createUUID()
-            var newItem = {
-                id: idx,
-                message: message,
-                title: title,
-                options: itemOptions
-            }
+		const idx = this.createUUID();
+		const newItem = {
+			id: idx,
+			message,
+			title,
+			options: itemOptions
+		};
 
-            this.items.push(newItem)
+		this.items.push(newItem);
 
-            if (itemOptions.permanent === false) {
-                setTimeout(() => {
-                    this.removeItem(idx)
-                }, itemOptions.duration)
-            }
-        }
-        public removerItem(uid:string){
-            this.items = Object.assign([], this.items.filter(x => x.id !== uid))
-        }
-        public removeAll(){
-            this.items = []
+		if (itemOptions.permanent === false) {
+			setTimeout(() => {
+				this.removeItem(idx);
+			}, itemOptions.duration);
+		}
+	}
+	public removerItem(uid: string) {
+		this.items = Object.assign([], this.items.filter((x) => x.id !== uid));
+	}
+	public removeAll() {
+		this.items = [];
 
-        }
-    }
+	}
+}
 </script>
 
 <style scoped>

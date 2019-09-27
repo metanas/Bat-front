@@ -10,33 +10,33 @@
 </template>
 
 <script lang="ts">
-    import {Component,Watch ,Prop, Vue} from "vue-property-decorator";
-    @Component({
-        name: "Stars",
-    })
-    export default class Stars extends Vue{
+import {Component, Watch , Prop, Vue} from "vue-property-decorator";
+@Component({
+	name: "Stars",
+})
+export default class Stars extends Vue {
 
-        @Prop() public value: number;
-        @Prop() public disabled: boolean;
+	@Prop() public value: number;
+	@Prop() public disabled: boolean;
 
-        public tempValue= null;
-        public ratings= [1, 2, 3, 4, 5];
-        public onMouseOver= false
+	public tempValue = null;
+	public ratings = [1, 2, 3, 4, 5];
+	public onMouseOver = false;
 
-        public star_over(rate:number):void{
-            if (!this.disabled) {
-                this.tempValue = rate;
-                this.onMouseOver = true
-            }
-        }
-        public star_out():void{
-            this.onMouseOver = false
-        }
-        public set(value: number):void{
-            if (!this.disabled) {
-                this.tempValue = value;
-                this.$emit('input', this.tempValue)
-            }
-        }
-    }
+	public star_over(rate: number): void {
+		if (!this.disabled) {
+			this.tempValue = rate;
+			this.onMouseOver = true;
+		}
+	}
+	public star_out(): void {
+		this.onMouseOver = false;
+	}
+	public set(value: number): void {
+		if (!this.disabled) {
+			this.tempValue = value;
+			this.$emit("input", this.tempValue);
+		}
+	}
+}
 </script>

@@ -17,15 +17,15 @@ b-card(:class="{'active': selectedItems.includes(data.id)}" @click.prevent="togg
 </template>
 
 <script lang="ts">
-import {Component,Prop, Vue} from "vue-property-decorator";
+import {Component, Prop, Vue} from "vue-property-decorator";
 @Component({
-    name:"ImageListItem"
+	name: "ImageListItem"
 })
 export default class ImageListItem extends Vue {
-    @Prop() public data: object;
-    @Prop() public selectedItems: number[];
-    public toggleItem (event: MouseEvent, itemId?: number) {
-        this.$emit('toggle-item', event, itemId)}
-    }
+	@Prop() public data: object;
+	@Prop() public selectedItems: number[];
+	public toggleItem(event: MouseEvent, itemId?: number) {
+		this.$emit("toggle-item", event, itemId); }
+	}
 </script>
 

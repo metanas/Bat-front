@@ -18,13 +18,13 @@
 </template>
 
 <script lang="ts">
-    import VuetablePaginationMixin from 'vuetable-2/src/components/VuetablePaginationMixin'
-    import {Component,Watch ,Prop, Vue} from "vue-property-decorator";
-    @Component({
-        name: "VuetablePaginationBootstrap",
-        mixins: [VuetablePaginationMixin]
-    })
-    export default class VuetablePaginationBootstrap extends Vue{
+import VuetablePaginationMixin from "vuetable-2/src/components/VuetablePaginationMixin";
+import {Component, Watch , Prop, Vue} from "vue-property-decorator";
+@Component({
+	name: "VuetablePaginationBootstrap",
+	mixins: [VuetablePaginationMixin]
+})
+export default class VuetablePaginationBootstrap extends Vue {
 
-    }
+}
 </script>

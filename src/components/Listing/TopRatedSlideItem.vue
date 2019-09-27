@@ -9,22 +9,22 @@
 </template>
 
 <script lang="ts">
-import {Component,Prop, Vue} from "vue-property-decorator";
+import {Component, Prop, Vue} from "vue-property-decorator";
 import Stars from "@/components/Common/Stars";
 
 @Component({
-    name : "CommentItem",
-    components: {
-        Stars
-    }
+	name : "CommentItem",
+	components: {
+		Stars
+	}
 })
 export default class TopRatedSlideItem extends Vue  {
 
-    @Prop() public image: string;
-    @Prop() public order: string;
-    @Prop() public rate: number;
-    @Prop() public rateCount: number;
-    @Prop() public title: string;
+	@Prop() public image: string;
+	@Prop() public order: string;
+	@Prop() public rate: number;
+	@Prop() public rateCount: number;
+	@Prop() public title: string;
 
-    }
+	}
 </script>
