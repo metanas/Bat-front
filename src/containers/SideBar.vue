@@ -20,6 +20,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import vuePerfectScrollbar from "vue-perfect-scrollbar/index.vue";
+import LOGIN_MUTATION from "@/graphql/admin/login.graphql";
 
 @Component({
 	name: "SideBar",
@@ -30,9 +31,15 @@ import vuePerfectScrollbar from "vue-perfect-scrollbar/index.vue";
 export default class SideBar extends Vue {
 	public selectedParentMenu = "";
 	public isMenuOver = false;
+
+	mounted(): void {
+	  this.$apollo.mutate({ mutation: LOGIN_MUTATION,
+    variables: {email: "use3r@email.com", password: "TestPassword" }})
+      .then((response =>  {
+        console.log(response);
+        localStorage.setItem("admin_token", response.data.login.accessToken);
+      }))
+      .catch((error) => console.error(error));
+  }
 }
 </script>
-
-<style scoped>
-
-</style>
