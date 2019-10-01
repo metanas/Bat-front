@@ -25,7 +25,6 @@ const AreaShadow = generateChart("area-with-shadow", "lineWithShadow");
 @Component({
 	name: "AreaShadowClass"
 })
-
 export default class AreaShadowClass extends AreaShadow {
 	@Prop() public data: object;
 
