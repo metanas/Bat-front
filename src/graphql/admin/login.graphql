@@ -1,0 +1,16 @@
+mutation data($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      accessToken
+      user {
+          id
+          email
+          userGroup {
+              name
+              permissions{
+                  access
+                  modify
+              }
+          }
+      }
+    }
+}
