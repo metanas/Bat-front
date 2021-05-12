@@ -15,7 +15,7 @@
     "apollo-link": "^1.2.13",
     "apollo-link-http": "^1.5.16",
     "bootstrap-vue": "^2.0.1",
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "core-js": "^2.6.5",
     "graphql": "^14.5.8",
     "jwt-decode": "^2.2.0",
